@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "source": "local-file",
+  "description": "Offline-first commissioning form definition with individual photo fields as the source of truth.",
+  "sections": [
+    {
+      "id": "construction",
+      "title": "Construction",
+      "fields": [
+        "siteName",
+        "contractorMobilisedDate",
+        "solarFoundationStartDate",
+        "solarFoundationEndDate",
+        "earthingWorks",
+        "earthingType",
+        "earthingNos"
+      ]
+    },
+    {
+      "id": "utility-installation",
+      "title": "Utility Installation",
+      "fields": [
+        "essInstalled",
+        "essCount",
+        "panelCapacity",
+        "numberOfPanels"
+      ]
+    },
+    {
+      "id": "photos",
+      "title": "Photos",
+      "fields": [
+        "foundationPhotoExcavation",
+        "foundationPhotoSteelBinding",
+        "foundationPhotoRaftColumn",
+        "foundationPhotoBoltsPedestal",
+        "structurePhotoFront",
+        "structurePhotoSide",
+        "earthingPhotoEP1",
+        "earthingPhotoEP2",
+        "earthingPhotoEP3"
+      ]
+    }
+  ],
+  "fields": {
+    "siteName": {
+      "key": "siteName",
+      "label": "Site Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g. Roof 2 - North Block"
+    },
+    "contractorMobilisedDate": {
+      "key": "contractorMobilisedDate",
+      "label": "Contractor Mobilised Date",
+      "type": "date",
+      "required": true
+    },
+    "solarFoundationStartDate": {
+      "key": "solarFoundationStartDate",
+      "label": "Solar Foundation Start Date",
+      "type": "date",
+      "required": true
+    },
+    "solarFoundationEndDate": {
+      "key": "solarFoundationEndDate",
+      "label": "Solar Foundation End Date",
+      "type": "date",
+      "required": true
+    },
+    "earthingWorks": {
+      "key": "earthingWorks",
+      "label": "Earthing Works",
+      "type": "toggle",
+      "required": true,
+      "options": ["yes", "no"],
+      "defaultValue": "no"
+    },
+    "earthingType": {
+      "key": "earthingType",
+      "label": "Earthing Type",
+      "type": "select",
+      "required": true,
+      "options": ["Chemical", "Pipe", "Spike"],
+      "defaultValue": "Chemical"
+    },
+    "earthingNos": {
+      "key": "earthingNos",
+      "label": "Earthing Nos",
+      "type": "select",
+      "required": true,
+      "options": ["1", "2", "3"],
+      "defaultValue": "1"
+    },
+    "essInstalled": {
+      "key": "essInstalled",
+      "label": "ESS Installed",
+      "type": "toggle",
+      "required": true,
+      "options": ["yes", "no"],
+      "defaultValue": "no"
+    },
+    "essCount": {
+      "key": "essCount",
+      "label": "No of ESS Installed",
+      "type": "integer",
+      "required": true,
+      "defaultValue": 1,
+      "validation": {
+        "min": 1,
+        "max": 10
+      }
+    },
+    "panelCapacity": {
+      "key": "panelCapacity",
+      "label": "Panel Capacity",
+      "type": "select",
+      "required": true,
+      "options": ["575", "580", "585", "590", "600"],
+      "defaultValue": "575"
+    },
+    "numberOfPanels": {
+      "key": "numberOfPanels",
+      "label": "Number of Solar Panels",
+      "type": "number",
+      "required": true,
+      "placeholder": "Numeric",
+      "defaultValue": 1,
+      "validation": {
+        "min": 1,
+        "max": 500
+      }
+    },
+    "foundationPhotoExcavation": {
+      "key": "foundationPhotoExcavation",
+      "label": "Foundation - Excavation",
+      "type": "photo",
+      "required": true
+    },
+    "foundationPhotoSteelBinding": {
+      "key": "foundationPhotoSteelBinding",
+      "label": "Foundation - Steel Binding",
+      "type": "photo",
+      "required": true
+    },
+    "foundationPhotoRaftColumn": {
+      "key": "foundationPhotoRaftColumn",
+      "label": "Foundation - Raft / Column",
+      "type": "photo",
+      "required": true
+    },
+    "foundationPhotoBoltsPedestal": {
+      "key": "foundationPhotoBoltsPedestal",
+      "label": "Foundation - Bolts / Pedestal",
+      "type": "photo",
+      "required": true
+    },
+    "structurePhotoFront": {
+      "key": "structurePhotoFront",
+      "label": "Structure Front",
+      "type": "photo",
+      "required": true
+    },
+    "structurePhotoSide": {
+      "key": "structurePhotoSide",
+      "label": "Structure - Side",
+      "type": "photo",
+      "required": true
+    },
+    "earthingPhotoEP1": {
+      "key": "earthingPhotoEP1",
+      "label": "Earthing - EP1",
+      "type": "photo",
+      "required": true
+    },
+    "earthingPhotoEP2": {
+      "key": "earthingPhotoEP2",
+      "label": "Earthing - EP2",
+      "type": "photo",
+      "required": true
+    },
+    "earthingPhotoEP3": {
+      "key": "earthingPhotoEP3",
+      "label": "Earthing - EP3",
+      "type": "photo",
+      "required": true
+    }
+  }
+}

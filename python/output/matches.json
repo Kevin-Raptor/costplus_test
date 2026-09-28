@@ -1,0 +1,610 @@
+{
+  "scans": [
+    {
+      "input": "scans\\25_0912-LABASTIDA.jpg",
+      "status": "matched",
+      "ias_no": "25-0912",
+      "beneficiary": "Labastida, Jocelyn R.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\ias 25-0910 scan.jpg",
+      "status": "matched",
+      "ias_no": "25-0910",
+      "beneficiary": "Jumawan, Herminia C.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0901.jpg",
+      "status": "matched",
+      "ias_no": "25-0901",
+      "beneficiary": "Abellana, Rodel P.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0902.jpg",
+      "status": "matched",
+      "ias_no": "25-0902",
+      "beneficiary": "Bacus, Marites R.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0904.jpg",
+      "status": "matched",
+      "ias_no": "25-0904",
+      "beneficiary": "Dagondon, Analyn R.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0905.jpg",
+      "status": "matched",
+      "ias_no": "25-0905",
+      "beneficiary": "Estrada, Crispin S.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0906.jpg",
+      "status": "matched",
+      "ias_no": "25-0906",
+      "beneficiary": "Flores, Divina S.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0908.jpg",
+      "status": "matched",
+      "ias_no": "25-0908",
+      "beneficiary": "Hinampas, Felisa M.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0909.jpg",
+      "status": "matched",
+      "ias_no": "25-0909",
+      "beneficiary": "Ibarra, Gregorio T.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0910.jpg",
+      "status": "quarantined",
+      "reason": "multiple_scans_for_same_unit",
+      "quarantine": {
+        "original": "scans\\IAS_25-0910.jpg",
+        "quarantine_path": "output\\quarantine\\scans\\IAS_25-0910.jpg",
+        "reason": "multiple_scans_for_same_unit"
+      }
+    },
+    {
+      "input": "scans\\IAS_25-0911.jpg",
+      "status": "matched",
+      "ias_no": "25-0911",
+      "beneficiary": "Kadusale, Isagani T.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0913.jpg",
+      "status": "matched",
+      "ias_no": "25-0913",
+      "beneficiary": "Macapayag, Kristoffer M.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0914.jpg",
+      "status": "matched",
+      "ias_no": "25-0914",
+      "beneficiary": "Nacua, Lourdes L.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0915 (1).jpg",
+      "status": "matched",
+      "ias_no": "25-0915",
+      "beneficiary": "Olarte, Mariano C.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0916.jpg",
+      "status": "matched",
+      "ias_no": "25-0916",
+      "beneficiary": "Pagalan, Nenita R.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0917.jpg",
+      "status": "matched",
+      "ias_no": "25-0917",
+      "beneficiary": "Quimno, Orlando R.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0919.jpg",
+      "status": "matched",
+      "ias_no": "25-0919",
+      "beneficiary": "Sabellina, Quirino G.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0920.jpg",
+      "status": "matched",
+      "ias_no": "25-0920",
+      "beneficiary": "Tagupa, Rosalinda M.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0921.jpg",
+      "status": "matched",
+      "ias_no": "25-0921",
+      "beneficiary": "Ubalde, Samuel A.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0922.jpg",
+      "status": "matched",
+      "ias_no": "25-0922",
+      "beneficiary": "Villarin, Teresita L.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0923.jpg",
+      "status": "matched",
+      "ias_no": "25-0923",
+      "beneficiary": "Waban, Ulysses S.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0924.jpg",
+      "status": "matched",
+      "ias_no": "25-0924",
+      "beneficiary": "Yamba, Violeta D.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0925.jpg",
+      "status": "matched",
+      "ias_no": "25-0925",
+      "beneficiary": "Zamora, Wilfredo P.",
+      "method": "ias_exact",
+      "score": 100
+    },
+    {
+      "input": "scans\\IAS_25-0999.jpg",
+      "status": "quarantined",
+      "reason": "no_match_found",
+      "quarantine": {
+        "original": "scans\\IAS_25-0999.jpg",
+        "quarantine_path": "output\\quarantine\\scans\\IAS_25-0999.jpg",
+        "reason": "no_match_found"
+      },
+      "candidates": []
+    },
+    {
+      "input": "scans\\IAS_25-O903.jpg",
+      "status": "quarantined",
+      "reason": "no_match_found",
+      "quarantine": {
+        "original": "scans\\IAS_25-O903.jpg",
+        "quarantine_path": "output\\quarantine\\scans\\IAS_25-O903.jpg",
+        "reason": "no_match_found"
+      },
+      "candidates": []
+    }
+  ],
+  "photo_folders": [
+    {
+      "folder": "photo_files\\Abellana, Rodel P",
+      "status": "matched",
+      "ias_no": "25-0901",
+      "beneficiary": "Abellana, Rodel P.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Abellana, Rodel P\\lights_accessories.jpg",
+        "photo_files\\Abellana, Rodel P\\panel_install.jpg",
+        "photo_files\\Abellana, Rodel P\\recipient.jpg",
+        "photo_files\\Abellana, Rodel P\\rfid_card.jpg",
+        "photo_files\\Abellana, Rodel P\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Bacus, Marites R",
+      "status": "matched",
+      "ias_no": "25-0902",
+      "beneficiary": "Bacus, Marites R.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Bacus, Marites R\\lights_accessories.jpg",
+        "photo_files\\Bacus, Marites R\\panel_install.jpg",
+        "photo_files\\Bacus, Marites R\\recipient.jpg",
+        "photo_files\\Bacus, Marites R\\rfid_card.jpg",
+        "photo_files\\Bacus, Marites R\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Cabrera, Jonel T",
+      "status": "matched",
+      "ias_no": "25-0903",
+      "beneficiary": "Cabrera, Jonel T.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Cabrera, Jonel T\\lights_accessories.jpg",
+        "photo_files\\Cabrera, Jonel T\\panel_install.jpg",
+        "photo_files\\Cabrera, Jonel T\\recipient.jpg",
+        "photo_files\\Cabrera, Jonel T\\rfid_card.jpg",
+        "photo_files\\Cabrera, Jonel T\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Dagondos, Analyn",
+      "status": "quarantined",
+      "reason": "fuzzy_match_not_confident",
+      "candidates": [
+        {
+          "ias_no": "25-0904",
+          "name": "Dagondon, Analyn R.",
+          "score": 87.5
+        }
+      ],
+      "quarantine": {
+        "original": "photo_files\\Dagondos, Analyn",
+        "quarantine_path": "output\\quarantine\\photo_folders\\Dagondos, Analyn",
+        "reason": "fuzzy_match_not_confident"
+      }
+    },
+    {
+      "folder": "photo_files\\Estrada, Crispin S",
+      "status": "matched",
+      "ias_no": "25-0905",
+      "beneficiary": "Estrada, Crispin S.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Estrada, Crispin S\\lights_accessories.jpg",
+        "photo_files\\Estrada, Crispin S\\panel_install.jpg",
+        "photo_files\\Estrada, Crispin S\\recipient.jpg",
+        "photo_files\\Estrada, Crispin S\\rfid_card.jpg",
+        "photo_files\\Estrada, Crispin S\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Flores, Divina S",
+      "status": "matched",
+      "ias_no": "25-0906",
+      "beneficiary": "Flores, Divina S.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Flores, Divina S\\lights_accessories.jpg",
+        "photo_files\\Flores, Divina S\\panel_install.jpg",
+        "photo_files\\Flores, Divina S\\recipient.jpg",
+        "photo_files\\Flores, Divina S\\rfid_card.jpg",
+        "photo_files\\Flores, Divina S\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Galarrita, Ernesto S",
+      "status": "matched",
+      "ias_no": "25-0907",
+      "beneficiary": "Galarrita, Ernesto S.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Galarrita, Ernesto S\\lights_accessories.jpg",
+        "photo_files\\Galarrita, Ernesto S\\panel_install.jpg",
+        "photo_files\\Galarrita, Ernesto S\\recipient.jpg",
+        "photo_files\\Galarrita, Ernesto S\\rfid_card.jpg",
+        "photo_files\\Galarrita, Ernesto S\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Hinampas Felisa",
+      "status": "matched",
+      "ias_no": "25-0908",
+      "beneficiary": "Hinampas, Felisa M.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Hinampas Felisa\\lights_accessories.jpg",
+        "photo_files\\Hinampas Felisa\\panel_install.jpg",
+        "photo_files\\Hinampas Felisa\\recipient.jpg",
+        "photo_files\\Hinampas Felisa\\rfid_card.jpg",
+        "photo_files\\Hinampas Felisa\\solar_system.jpg"
+      ],
+      "method": "fuzzy_name",
+      "score": 100.0
+    },
+    {
+      "folder": "photo_files\\Ibarra, Gregorio T",
+      "status": "matched",
+      "ias_no": "25-0909",
+      "beneficiary": "Ibarra, Gregorio T.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Ibarra, Gregorio T\\lights_accessories.jpg",
+        "photo_files\\Ibarra, Gregorio T\\panel_install.jpg",
+        "photo_files\\Ibarra, Gregorio T\\recipient.jpg",
+        "photo_files\\Ibarra, Gregorio T\\rfid_card.jpg",
+        "photo_files\\Ibarra, Gregorio T\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Jumawan, Herminia C",
+      "status": "matched",
+      "ias_no": "25-0910",
+      "beneficiary": "Jumawan, Herminia C.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Jumawan, Herminia C\\lights_accessories.jpg",
+        "photo_files\\Jumawan, Herminia C\\panel_install.jpg",
+        "photo_files\\Jumawan, Herminia C\\recipient.jpg",
+        "photo_files\\Jumawan, Herminia C\\rfid_card.jpg",
+        "photo_files\\Jumawan, Herminia C\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Kadusale, Isagani T",
+      "status": "matched",
+      "ias_no": "25-0911",
+      "beneficiary": "Kadusale, Isagani T.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Kadusale, Isagani T\\lights_accessories.jpg",
+        "photo_files\\Kadusale, Isagani T\\panel_install.jpg",
+        "photo_files\\Kadusale, Isagani T\\recipient.jpg",
+        "photo_files\\Kadusale, Isagani T\\rfid_card.jpg",
+        "photo_files\\Kadusale, Isagani T\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Labastida, Jocelyn R",
+      "status": "matched",
+      "ias_no": "25-0912",
+      "beneficiary": "Labastida, Jocelyn R.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Labastida, Jocelyn R\\lights_accessories.jpg",
+        "photo_files\\Labastida, Jocelyn R\\panel_install.jpg",
+        "photo_files\\Labastida, Jocelyn R\\recipient.jpg",
+        "photo_files\\Labastida, Jocelyn R\\rfid_card.jpg",
+        "photo_files\\Labastida, Jocelyn R\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\MACAPAYAG, KRISTOFFER M",
+      "status": "matched",
+      "ias_no": "25-0913",
+      "beneficiary": "Macapayag, Kristoffer M.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\MACAPAYAG, KRISTOFFER M\\lights_accessories.jpg",
+        "photo_files\\MACAPAYAG, KRISTOFFER M\\panel_install.jpg",
+        "photo_files\\MACAPAYAG, KRISTOFFER M\\recipient.jpg",
+        "photo_files\\MACAPAYAG, KRISTOFFER M\\rfid_card.jpg",
+        "photo_files\\MACAPAYAG, KRISTOFFER M\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Nacua, Lourdes L",
+      "status": "matched",
+      "ias_no": "25-0914",
+      "beneficiary": "Nacua, Lourdes L.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Nacua, Lourdes L\\lights_accessories.jpg",
+        "photo_files\\Nacua, Lourdes L\\panel_install.jpg",
+        "photo_files\\Nacua, Lourdes L\\recipient.jpg",
+        "photo_files\\Nacua, Lourdes L\\rfid_card.jpg",
+        "photo_files\\Nacua, Lourdes L\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Olarte, Mariano C",
+      "status": "matched",
+      "ias_no": "25-0915",
+      "beneficiary": "Olarte, Mariano C.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Olarte, Mariano C\\lights_accessories.jpg",
+        "photo_files\\Olarte, Mariano C\\panel_install.jpg",
+        "photo_files\\Olarte, Mariano C\\recipient.jpg",
+        "photo_files\\Olarte, Mariano C\\rfid_card.jpg",
+        "photo_files\\Olarte, Mariano C\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Pagalan, Nenita R",
+      "status": "matched",
+      "ias_no": "25-0916",
+      "beneficiary": "Pagalan, Nenita R.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Pagalan, Nenita R\\lights_accessories.jpg",
+        "photo_files\\Pagalan, Nenita R\\panel_install.jpg",
+        "photo_files\\Pagalan, Nenita R\\recipient.jpg",
+        "photo_files\\Pagalan, Nenita R\\rfid_card.jpg",
+        "photo_files\\Pagalan, Nenita R\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Quimno, Orlando R",
+      "status": "incomplete",
+      "ias_no": "25-0917",
+      "beneficiary": "Quimno, Orlando R.",
+      "photo_count": 4,
+      "expected": 5,
+      "photos": [
+        "photo_files\\Quimno, Orlando R\\panel_install.jpg",
+        "photo_files\\Quimno, Orlando R\\recipient.jpg",
+        "photo_files\\Quimno, Orlando R\\rfid_card.jpg",
+        "photo_files\\Quimno, Orlando R\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Rosales, Perlita G",
+      "status": "matched",
+      "ias_no": "25-0918",
+      "beneficiary": "Rosales, Perlita G.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Rosales, Perlita G\\lights_accessories.jpg",
+        "photo_files\\Rosales, Perlita G\\panel_install.jpg",
+        "photo_files\\Rosales, Perlita G\\recipient.jpg",
+        "photo_files\\Rosales, Perlita G\\rfid_card.jpg",
+        "photo_files\\Rosales, Perlita G\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Sabellina, Quirino G",
+      "status": "matched",
+      "ias_no": "25-0919",
+      "beneficiary": "Sabellina, Quirino G.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Sabellina, Quirino G\\lights_accessories.jpg",
+        "photo_files\\Sabellina, Quirino G\\panel_install.jpg",
+        "photo_files\\Sabellina, Quirino G\\recipient.jpg",
+        "photo_files\\Sabellina, Quirino G\\rfid_card.jpg",
+        "photo_files\\Sabellina, Quirino G\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Santos, Pedro Q",
+      "status": "quarantined",
+      "reason": "no_match_found",
+      "candidates": [],
+      "quarantine": {
+        "original": "photo_files\\Santos, Pedro Q",
+        "quarantine_path": "output\\quarantine\\photo_folders\\Santos, Pedro Q",
+        "reason": "no_match_found"
+      }
+    },
+    {
+      "folder": "photo_files\\Tagupa,Rosalinda",
+      "status": "matched",
+      "ias_no": "25-0920",
+      "beneficiary": "Tagupa, Rosalinda M.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Tagupa,Rosalinda\\lights_accessories.jpg",
+        "photo_files\\Tagupa,Rosalinda\\panel_install.jpg",
+        "photo_files\\Tagupa,Rosalinda\\recipient.jpg",
+        "photo_files\\Tagupa,Rosalinda\\rfid_card.jpg",
+        "photo_files\\Tagupa,Rosalinda\\solar_system.jpg"
+      ],
+      "method": "fuzzy_name",
+      "score": 100.0
+    },
+    {
+      "folder": "photo_files\\Villarin, Teresita L",
+      "status": "matched",
+      "ias_no": "25-0922",
+      "beneficiary": "Villarin, Teresita L.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Villarin, Teresita L\\lights_accessories.jpg",
+        "photo_files\\Villarin, Teresita L\\panel_install.jpg",
+        "photo_files\\Villarin, Teresita L\\recipient.jpg",
+        "photo_files\\Villarin, Teresita L\\rfid_card.jpg",
+        "photo_files\\Villarin, Teresita L\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Waban, Ulysses S",
+      "status": "matched",
+      "ias_no": "25-0923",
+      "beneficiary": "Waban, Ulysses S.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Waban, Ulysses S\\lights_accessories.jpg",
+        "photo_files\\Waban, Ulysses S\\panel_install.jpg",
+        "photo_files\\Waban, Ulysses S\\recipient.jpg",
+        "photo_files\\Waban, Ulysses S\\rfid_card.jpg",
+        "photo_files\\Waban, Ulysses S\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Yamba, Violeta D",
+      "status": "matched",
+      "ias_no": "25-0924",
+      "beneficiary": "Yamba, Violeta D.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Yamba, Violeta D\\lights_accessories.jpg",
+        "photo_files\\Yamba, Violeta D\\panel_install.jpg",
+        "photo_files\\Yamba, Violeta D\\recipient.jpg",
+        "photo_files\\Yamba, Violeta D\\rfid_card.jpg",
+        "photo_files\\Yamba, Violeta D\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    },
+    {
+      "folder": "photo_files\\Zamora, Wilfredo P",
+      "status": "matched",
+      "ias_no": "25-0925",
+      "beneficiary": "Zamora, Wilfredo P.",
+      "photo_count": 5,
+      "photos": [
+        "photo_files\\Zamora, Wilfredo P\\lights_accessories.jpg",
+        "photo_files\\Zamora, Wilfredo P\\panel_install.jpg",
+        "photo_files\\Zamora, Wilfredo P\\recipient.jpg",
+        "photo_files\\Zamora, Wilfredo P\\rfid_card.jpg",
+        "photo_files\\Zamora, Wilfredo P\\solar_system.jpg"
+      ],
+      "method": "normalized_name",
+      "score": 100
+    }
+  ]
+}

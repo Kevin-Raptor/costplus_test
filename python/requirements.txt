@@ -1,0 +1,5 @@
+openpyxl
+rapidfuzz
+Pillow
+ImageHash
+reportlab
