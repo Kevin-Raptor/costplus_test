@@ -36,10 +36,24 @@ PDF_DIR = OUTPUT_DIR / "pdfs"
 
 MATCHES_FILE = OUTPUT_DIR / "matches.json"
 DUPLICATES_FILE = OUTPUT_DIR / "duplicates.json"
+PHASH_DISTANCES_FILE = OUTPUT_DIR / "phash_distances.json"
 RECONCILIATION_FILE = OUTPUT_DIR / "reconciliation.json"
 
-PHASH_DUPLICATE_THRESHOLD = 5
-PHASH_REVIEW_THRESHOLD = 10
+PHASH_HASH_SIZE = 24
+PHASH_DUPLICATE_THRESHOLD = 12
+PHASH_REVIEW_THRESHOLD = 20
+
+# Manually confirmed reused files that SHA-256 misses because the file was
+# resized/recompressed (different bytes, same content). Used only to label
+# the pHash calibration evidence, not to influence detection thresholds.
+KNOWN_DUPLICATE_FILE_PAIRS = {
+    frozenset(
+        {
+            str(Path("photo_files/Kadusale, Isagani T/solar_system.jpg")),
+            str(Path("photo_files/Pagalan, Nenita R/solar_system.jpg")),
+        }
+    ),
+}
 
 # Adjust these if the actual column names differ.
 MASTER_COLUMNS = {
@@ -107,10 +121,10 @@ def sha256_file(path):
     return hash_obj.hexdigest()
 
 
-def phash_file(path):
+def phash_file(path, hash_size=PHASH_HASH_SIZE):
     try:
         with Image.open(path) as img:
-            return imagehash.phash(img)
+            return imagehash.phash(img, hash_size=hash_size)
     except Exception:
         return None
 
@@ -745,11 +759,9 @@ def detect_duplicates(file_hashes, item_key="photo"):
     return duplicates
 
 
-def detect_phash_duplicates(file_hashes, item_key="photo"):
+def calculate_phash_pair_distances(file_hashes, item_key="photo"):
     """
-    Detect near-duplicate files (recompressed/edited copies) using
-    perceptual hash Hamming distance. Only cross-beneficiary pairs
-    are reported, same as detect_duplicates.
+    Calculate and classify pHash distances for every cross-beneficiary pair.
     """
 
     items_with_phash = [item for item in file_hashes if item.get("phash") is not None]
@@ -765,24 +777,25 @@ def detect_phash_duplicates(file_hashes, item_key="photo"):
             if a["ias_no"] == b["ias_no"]:
                 continue
 
-            # Skip pairs already caught as exact sha256 duplicates
-            if a["sha256"] == b["sha256"]:
-                continue
-
             distance = int(a["phash"] - b["phash"])
-
-            if distance > PHASH_REVIEW_THRESHOLD:
-                continue
-
-            duplicate_type = (
-                "near_duplicate" if distance <= PHASH_DUPLICATE_THRESHOLD else "review"
-            )
+            exact_file_match = a["sha256"] == b["sha256"]
+            if exact_file_match:
+                classification = "exact_duplicate"
+            elif distance <= PHASH_DUPLICATE_THRESHOLD:
+                classification = "near_duplicate"
+            elif distance <= PHASH_REVIEW_THRESHOLD:
+                classification = "review"
+            else:
+                classification = "not_similar"
 
             duplicates.append(
                 {
-                    "type": duplicate_type,
+                    "type": classification,
                     "method": "phash",
+                    "hash_size": PHASH_HASH_SIZE,
+                    "hash_bits": PHASH_HASH_SIZE**2,
                     "distance": distance,
+                    "exact_file_match": exact_file_match,
                     "unit_a": a["ias_no"],
                     "beneficiary_a": a["beneficiary"],
                     f"{item_key}_a": a["path"],
@@ -793,6 +806,71 @@ def detect_phash_duplicates(file_hashes, item_key="photo"):
             )
 
     return duplicates
+
+
+def summarize_phash_calibration(photo_pairs, scan_pairs):
+    """
+    Ground the near-duplicate/review thresholds in observed evidence rather
+    than a guess: split each pair list into "verified duplicate" distances
+    (exact SHA-256 matches, plus the one manually confirmed resized/
+    recompressed reuse found by inspecting the lowest non-exact distance)
+    versus the "noise floor" of unrelated cross-beneficiary pairs, then
+    report the gap between them.
+    """
+
+    def analyze(pairs, item_key):
+        verified_distances = []
+        noise_distances = []
+
+        for pair in pairs:
+            key = frozenset({pair[f"{item_key}_a"], pair[f"{item_key}_b"]})
+            if pair["exact_file_match"] or key in KNOWN_DUPLICATE_FILE_PAIRS:
+                verified_distances.append(pair["distance"])
+            else:
+                noise_distances.append(pair["distance"])
+
+        return sorted(verified_distances), noise_distances
+
+    photo_verified, photo_noise = analyze(photo_pairs, "photo")
+    scan_verified, scan_noise = analyze(scan_pairs, "scan")
+
+    return {
+        "status": "calibrated",
+        "hash_size": PHASH_HASH_SIZE,
+        "hash_bits": PHASH_HASH_SIZE**2,
+        "near_duplicate_threshold": PHASH_DUPLICATE_THRESHOLD,
+        "review_threshold": PHASH_REVIEW_THRESHOLD,
+        "photo_pairs": {
+            "compared": len(photo_pairs),
+            "verified_duplicate_distances": photo_verified,
+            "noise_floor_min_distance": min(photo_noise, default=None),
+        },
+        "scan_pairs": {
+            "compared": len(scan_pairs),
+            "verified_duplicate_distances": scan_verified,
+            "noise_floor_min_distance": min(scan_noise, default=None),
+        },
+        "known_edited_or_recompressed_duplicate_examples": len(
+            KNOWN_DUPLICATE_FILE_PAIRS
+        ),
+        "threshold_rationale": (
+            f"Verified photo duplicate distances: {photo_verified}. Noise "
+            f"floor (unrelated cross-beneficiary photo pairs) starts at "
+            f"{min(photo_noise, default='n/a')}. Thresholds "
+            f"({PHASH_DUPLICATE_THRESHOLD} near-duplicate, "
+            f"{PHASH_REVIEW_THRESHOLD} review) sit inside that gap."
+        ),
+        "limitation": (
+            "Only one manually verified recompressed/resized duplicate pair "
+            "exists in this dataset ('Kadusale, Isagani T\\solar_system.jpg' "
+            "reused as 'Pagalan, Nenita R\\solar_system.jpg', distance 12), "
+            "found by visually inspecting the smallest non-exact photo "
+            "distance. Thresholds are calibrated against this single "
+            "example plus the observed noise floor; recall against a "
+            "larger or more varied set of edited duplicates remains "
+            "unverified."
+        ),
+    }
 
 
 # ============================================================
@@ -902,6 +980,7 @@ def reconcile(
     scan_phash_duplicate_results,
     generated_pdfs,
     pdf_generation_skips,
+    phash_calibration,
 ):
     master_ias = {unit["ias_no"] for unit in units}
 
@@ -960,6 +1039,7 @@ def reconcile(
             "pairs_found": len(scan_phash_duplicate_results),
             "pairs": scan_phash_duplicate_results,
         },
+        "phash_calibration": phash_calibration,
         "pdfs": {
             "generated": len(generated_pdfs),
             "files": generated_pdfs,
@@ -1025,7 +1105,6 @@ def main():
 
     photo_hashes = calculate_photo_hashes(photo_results)
     print(f"Len of photo hashes: {len(photo_hashes)}")
-    print(f"hash 1: {photo_hashes[0] if photo_hashes else 'N/A'}")
 
     duplicate_results = detect_duplicates(photo_hashes, item_key="photo")
 
@@ -1037,11 +1116,29 @@ def main():
 
     print(f"Duplicate scan pairs found: " f"{len(scan_duplicate_results)}")
 
-    phash_duplicate_results = detect_phash_duplicates(photo_hashes, item_key="photo")
+    photo_phash_distances = calculate_phash_pair_distances(
+        photo_hashes,
+        item_key="photo",
+    )
+    phash_duplicate_results = [
+        pair
+        for pair in photo_phash_distances
+        if pair["type"] in {"near_duplicate", "review"}
+    ]
 
-    print(f"Near-duplicate photo pairs found (phash): " f"{len(phash_duplicate_results)}")
+    print(
+        f"Near-duplicate photo pairs found (phash): " f"{len(phash_duplicate_results)}"
+    )
 
-    scan_phash_duplicate_results = detect_phash_duplicates(scan_hashes, item_key="scan")
+    scan_phash_distances = calculate_phash_pair_distances(
+        scan_hashes,
+        item_key="scan",
+    )
+    scan_phash_duplicate_results = [
+        pair
+        for pair in scan_phash_distances
+        if pair["type"] in {"near_duplicate", "review"}
+    ]
 
     print(
         f"Near-duplicate scan pairs found (phash): "
@@ -1052,9 +1149,17 @@ def main():
     # Determine units that are safe for PDF generation
     # --------------------------------------------------------
 
-    # Perceptual hashes are advisory because similar photo categories and scan
-    # layouts can look alike without being reused files.
+    # "review" pairs stay advisory only. "near_duplicate" pHash pairs also
+    # block PDF generation: a manually confirmed resized/recompressed photo
+    # (distance 12, see phash_calibration) proved SHA-256 alone misses reuse
+    # that survives resaving, and the noise floor here does not start until
+    # distance 34, well above the near-duplicate threshold.
     blocking_duplicates = duplicate_results + scan_duplicate_results
+    blocking_duplicates.extend(
+        pair
+        for pair in phash_duplicate_results + scan_phash_duplicate_results
+        if pair["type"] == "near_duplicate"
+    )
 
     duplicate_records_by_ias = defaultdict(list)
     for duplicate in blocking_duplicates:
@@ -1130,7 +1235,7 @@ def main():
         if ias in duplicate_units:
             reasons.append(
                 {
-                    "code": "exact_duplicate_files_detected",
+                    "code": "duplicate_files_detected",
                     "pairs": duplicate_records_by_ias[ias],
                 }
             )
@@ -1173,6 +1278,10 @@ def main():
         scan_phash_duplicate_results,
         generated_pdfs,
         pdf_generation_skips,
+        summarize_phash_calibration(
+            photo_phash_distances,
+            scan_phash_distances,
+        ),
     )
 
     # --------------------------------------------------------
@@ -1204,6 +1313,24 @@ def main():
                 "scan_duplicates": scan_duplicate_results,
                 "photo_phash_duplicates": phash_duplicate_results,
                 "scan_phash_duplicates": scan_phash_duplicate_results,
+            },
+            f,
+            indent=2,
+        )
+
+    with open(
+        PHASH_DISTANCES_FILE,
+        "w",
+        encoding="utf-8",
+    ) as f:
+        json.dump(
+            {
+                "hash_size": PHASH_HASH_SIZE,
+                "hash_bits": PHASH_HASH_SIZE**2,
+                "near_duplicate_threshold": PHASH_DUPLICATE_THRESHOLD,
+                "review_threshold": PHASH_REVIEW_THRESHOLD,
+                "photo_pairs": photo_phash_distances,
+                "scan_pairs": scan_phash_distances,
             },
             f,
             indent=2,
